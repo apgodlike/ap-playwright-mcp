@@ -17,9 +17,20 @@ export interface ChatCompletionResponse {
     message: {
       role: string;
       content: string;
+      tool_calls?: ToolCall[]
+      id: string
     };
     logprobs: null | object;
     finish_reason: string;
     index: number;
   }[];
+}
+
+
+export interface ToolCall {
+  id: string;
+  type: string;
+  function: {name: string; arguments: object};
+    
+  
 }
